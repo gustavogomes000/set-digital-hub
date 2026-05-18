@@ -29,7 +29,7 @@ const SITE_URL = "https://settecnologia.com";
 
 function Index() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-background">
+    <main className="relative h-[100svh] overflow-hidden bg-background">
       {/* === Animated 3D mesh background === */}
       <div
         aria-hidden
@@ -56,6 +56,16 @@ function Index() {
         }}
       />
 
+      {/* Aurora sweep */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-1/4 left-1/2 h-[28rem] w-[120%] -translate-x-1/2 blur-[80px] animate-aurora-sweep"
+        style={{
+          background:
+            "linear-gradient(100deg, transparent 10%, oklch(0.78 0.18 300 / 0.35) 35%, oklch(0.82 0.14 330 / 0.4) 55%, transparent 85%)",
+        }}
+      />
+
       {/* Subtle drifting grid */}
       <div
         aria-hidden
@@ -79,13 +89,54 @@ function Index() {
         }}
       />
 
-      <div className="relative mx-auto flex min-h-screen max-w-md flex-col px-6 py-14">
+      {/* Floating particles */}
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        {Array.from({ length: 14 }).map((_, i) => {
+          const left = (i * 37) % 100;
+          const delay = (i % 7) * 0.8;
+          const dur = 9 + (i % 5) * 2;
+          const px = ((i * 53) % 80) - 40;
+          const py = -80 - ((i * 17) % 60);
+          const size = 3 + (i % 3);
+          return (
+            <span
+              key={i}
+              className="absolute bottom-0 rounded-full"
+              style={{
+                left: `${left}%`,
+                width: size,
+                height: size,
+                background:
+                  i % 2 === 0
+                    ? "oklch(0.6 0.22 300 / 0.7)"
+                    : "oklch(0.78 0.14 320 / 0.7)",
+                boxShadow: "0 0 12px currentColor",
+                color: i % 2 === 0 ? "oklch(0.6 0.22 300 / 0.6)" : "oklch(0.78 0.14 320 / 0.6)",
+                animation: `particle-float ${dur}s linear ${delay}s infinite`,
+                ["--px" as never]: `${px}px`,
+                ["--py" as never]: `${py}px`,
+              }}
+            />
+          );
+        })}
+      </div>
+
+      <div className="relative mx-auto flex h-[100svh] max-w-md flex-col px-6 py-6">
         {/* Logo with 3D float + pulsing aura */}
         <header className="flex flex-col items-center text-center">
-          <div className="relative animate-rise">
+          <div className="relative">
+            {/* Conic glow ring behind logo */}
             <div
               aria-hidden
-              className="absolute inset-0 -m-6 rounded-full animate-ring-pulse"
+              className="absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-60 blur-2xl animate-conic-spin"
+              style={{
+                background:
+                  "conic-gradient(from 0deg, oklch(0.7 0.22 300 / 0.7), oklch(0.82 0.14 320 / 0.6), oklch(0.7 0.18 250 / 0.5), oklch(0.7 0.22 300 / 0.7))",
+              }}
+            />
+            <div
+              aria-hidden
+              className="absolute inset-0 -m-4 rounded-full animate-ring-pulse"
               style={{
                 background:
                   "radial-gradient(circle, oklch(0.7 0.22 300 / 0.35), transparent 60%)",
@@ -93,29 +144,31 @@ function Index() {
             />
             <div
               aria-hidden
-              className="absolute inset-0 -m-10 rounded-full animate-ring-pulse"
+              className="absolute inset-0 -m-8 rounded-full animate-ring-pulse"
               style={{
                 animationDelay: "1.5s",
                 background:
                   "radial-gradient(circle, oklch(0.78 0.14 320 / 0.3), transparent 60%)",
               }}
             />
-            <img
-              src={logo}
-              alt="SET Tecnologia"
-              className="relative h-32 w-auto object-contain animate-float-3d drop-shadow-[0_20px_30px_rgba(80,30,160,0.25)]"
-            />
+            <div className="relative animate-logo-reveal">
+              <img
+                src={logo}
+                alt="SET Tecnologia"
+                className="relative h-24 w-auto object-contain animate-float-3d drop-shadow-[0_18px_28px_rgba(80,30,160,0.3)]"
+              />
+            </div>
           </div>
 
           <p
-            className="mt-10 text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground animate-rise"
+            className="mt-6 text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground animate-rise"
             style={{ animationDelay: "0.1s" }}
           >
             Atendimento Digital
           </p>
 
           <h1
-            className="mt-4 text-balance text-[2rem] font-bold leading-[1.08] text-foreground sm:text-[2.4rem] animate-rise"
+            className="mt-3 text-balance text-[1.55rem] font-bold leading-[1.1] text-foreground animate-rise"
             style={{ animationDelay: "0.2s" }}
           >
             Soluções para sua empresa{" "}
@@ -124,7 +177,7 @@ function Index() {
           </h1>
 
           <p
-            className="mt-5 max-w-sm text-pretty text-[15px] font-normal leading-relaxed text-muted-foreground animate-rise"
+            className="mt-3 max-w-sm text-pretty text-[13px] font-normal leading-snug text-muted-foreground animate-rise"
             style={{ animationDelay: "0.3s" }}
           >
             Sistemas, automações com IA, marketing e design em um só lugar.
@@ -133,7 +186,7 @@ function Index() {
 
         {/* Botões */}
         <section
-          className="mt-12 space-y-3 animate-rise"
+          className="mt-6 space-y-2.5 animate-rise"
           style={{ animationDelay: "0.45s" }}
         >
           {/* WhatsApp — primário */}
@@ -141,7 +194,7 @@ function Index() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative flex w-full items-center gap-4 overflow-hidden rounded-2xl px-5 py-[18px] text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
+            className="group relative flex w-full items-center gap-3 overflow-hidden rounded-2xl px-4 py-3.5 text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
             style={{
               background:
                 "linear-gradient(135deg, oklch(0.5 0.22 300), oklch(0.62 0.22 315))",
@@ -153,19 +206,19 @@ function Index() {
               aria-hidden
               className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full"
             />
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/15 backdrop-blur-sm">
-              <MessageCircle className="h-[18px] w-[18px]" strokeWidth={2.2} />
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/15 backdrop-blur-sm">
+              <MessageCircle className="h-[16px] w-[16px]" strokeWidth={2.2} />
             </div>
             <div className="relative flex-1 text-left">
-              <div className="text-[15px] font-semibold leading-tight tracking-tight">
+              <div className="text-[14px] font-semibold leading-tight tracking-tight">
                 Solicite um diagnóstico
               </div>
-              <div className="text-[12px] font-normal text-white/75">
+              <div className="text-[11px] font-normal text-white/75">
                 Fale com o time no WhatsApp
               </div>
             </div>
             <ArrowUpRight
-              className="relative h-[18px] w-[18px] opacity-80 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              className="relative h-[16px] w-[16px] opacity-80 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               strokeWidth={2.2}
             />
           </a>
@@ -175,27 +228,27 @@ function Index() {
             href={SITE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="glass group relative flex w-full items-center gap-4 overflow-hidden rounded-2xl px-5 py-[18px] text-foreground transition-all duration-300 hover:-translate-y-0.5"
+            className="glass group relative flex w-full items-center gap-3 overflow-hidden rounded-2xl px-4 py-3.5 text-foreground transition-all duration-300 hover:-translate-y-0.5"
           >
             <div
-              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-primary-foreground"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-primary-foreground"
               style={{
                 background:
                   "linear-gradient(135deg, oklch(0.5 0.22 300), oklch(0.62 0.22 315))",
               }}
             >
-              <Globe className="h-[18px] w-[18px]" strokeWidth={2.2} />
+              <Globe className="h-[16px] w-[16px]" strokeWidth={2.2} />
             </div>
             <div className="flex-1 text-left">
-              <div className="text-[15px] font-semibold leading-tight tracking-tight">
+              <div className="text-[14px] font-semibold leading-tight tracking-tight">
                 Conheça a SET
               </div>
-              <div className="text-[12px] font-normal text-muted-foreground">
+              <div className="text-[11px] font-normal text-muted-foreground">
                 settecnologia.com
               </div>
             </div>
             <ArrowUpRight
-              className="h-[18px] w-[18px] text-muted-foreground transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary"
+              className="h-[16px] w-[16px] text-muted-foreground transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary"
               strokeWidth={2.2}
             />
           </a>
@@ -203,10 +256,10 @@ function Index() {
 
         {/* Rodapé */}
         <footer
-          className="mt-auto pt-16 text-center animate-rise"
+          className="mt-auto pt-4 text-center animate-rise"
           style={{ animationDelay: "0.6s" }}
         >
-          <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground/80">
+          <p className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground/80">
             © {new Date().getFullYear()} SET Tecnologia
           </p>
         </footer>
