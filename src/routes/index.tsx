@@ -59,22 +59,32 @@ function Index() {
         }}
       />
 
-       {/* Large Atmospheric Blooms */}
-       <div
-         aria-hidden
-         className="pointer-events-none absolute -top-[10%] -left-[10%] h-[60rem] w-[60rem] rounded-full blur-[140px] opacity-30 animate-aurora-flow mix-blend-soft-light"
-         style={{
-           background: "radial-gradient(circle, oklch(0.65 0.2 300 / 0.4), transparent 70%)",
-         }}
-       />
-       <div
-         aria-hidden
-         className="pointer-events-none absolute -bottom-[10%] -right-[10%] h-[55rem] w-[55rem] rounded-full blur-[130px] opacity-25 animate-aurora-flow mix-blend-soft-light"
-         style={{
-           background: "radial-gradient(circle, oklch(0.75 0.15 320 / 0.35), transparent 70%)",
-           animationDelay: "-12s",
-         }}
-       />
+       {/* Ultra-Dynamic Atmospheric Background */}
+       <div className="absolute inset-0 overflow-hidden pointer-events-none">
+         <div
+           aria-hidden
+           className="absolute -top-[20%] -left-[20%] h-[80rem] w-[80rem] rounded-full animate-aurora-flow mix-blend-plus-lighter opacity-40"
+           style={{
+             background: "radial-gradient(circle at center, oklch(0.6 0.25 300 / 0.5), oklch(0.7 0.2 330 / 0.3) 40%, transparent 70%)",
+           }}
+         />
+         <div
+           aria-hidden
+           className="absolute -bottom-[20%] -right-[20%] h-[75rem] w-[75rem] rounded-full animate-aurora-flow mix-blend-plus-lighter opacity-35"
+           style={{
+             background: "radial-gradient(circle at center, oklch(0.75 0.2 280 / 0.4), oklch(0.65 0.15 310 / 0.2) 45%, transparent 70%)",
+             animationDelay: "-12.5s",
+           }}
+         />
+         <div
+           aria-hidden
+           className="absolute top-1/4 left-0 h-[40rem] w-[40rem] rounded-full animate-morph-slow mix-blend-overlay opacity-30"
+           style={{
+             background: "conic-gradient(from 0deg, oklch(0.6 0.2 300), oklch(0.8 0.15 330), oklch(0.6 0.2 300))",
+             filter: "blur(100px)",
+           }}
+         />
+       </div>
  
        {/* Refined pulsing orbs */}
       <div
@@ -266,18 +276,18 @@ function Index() {
              href={WHATSAPP_URL}
              target="_blank"
              rel="noopener noreferrer"
-             className="group relative flex w-full items-center gap-4 overflow-hidden rounded-3xl px-5 py-5 text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
+             className="group relative flex w-full items-center gap-4 overflow-hidden rounded-[2rem] px-6 py-6 text-primary-foreground transition-all duration-500 hover:-translate-y-1 active:scale-[0.98]"
              style={{
                background:
-                 "linear-gradient(135deg, oklch(0.5 0.22 300), oklch(0.62 0.22 315))",
+                 "linear-gradient(135deg, oklch(0.5 0.25 300), oklch(0.65 0.2 320))",
                boxShadow:
-                 "0 1px 0 rgba(255,255,255,0.25) inset, 0 22px 50px -15px oklch(0.5 0.22 300 / 0.6), 0 4px 12px rgba(0,0,0,0.1)",
+                 "0 1px 1px rgba(255,255,255,0.4) inset, 0 25px 60px -15px oklch(0.5 0.25 300 / 0.7), 0 8px 20px -5px rgba(0,0,0,0.2)",
              }}
            >
-            <span
-              aria-hidden
-              className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full"
-            />
+             <span
+               aria-hidden
+               className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-1000 group-hover:translate-x-full animate-glass-shine"
+             />
              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/15 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
                <MessageCircle className="h-[20px] w-[20px]" strokeWidth={2.5} />
             </div>
