@@ -129,7 +129,7 @@ function Index() {
               <img
                 src={logo}
                 alt="SET Tecnologia"
-                className="relative h-24 w-auto object-contain animate-float-3d"
+                className="relative h-36 w-auto object-contain animate-float-soft"
               />
             </div>
           </div>
