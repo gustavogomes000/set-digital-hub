@@ -30,28 +30,49 @@ const SITE_URL = "https://settecnologia.com";
 function Index() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-background">
-      {/* Aurora glow — único, sutil, premium */}
+      {/* === Animated 3D mesh background === */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 left-1/2 h-[44rem] w-[44rem] -translate-x-1/2 rounded-full blur-[120px] opacity-60 animate-aurora"
+        className="pointer-events-none absolute -top-40 -left-32 h-[36rem] w-[36rem] rounded-full blur-[110px] opacity-70 animate-blob-1"
         style={{
           background:
-            "radial-gradient(circle, oklch(0.55 0.22 300 / 0.55) 0%, transparent 65%)",
+            "radial-gradient(circle at 30% 30%, oklch(0.7 0.22 300 / 0.55), transparent 65%)",
         }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute bottom-[-12rem] left-1/2 h-[36rem] w-[36rem] -translate-x-1/2 rounded-full blur-[120px] opacity-40 animate-aurora-2"
+        className="pointer-events-none absolute top-1/3 -right-40 h-[34rem] w-[34rem] rounded-full blur-[110px] opacity-60 animate-blob-2"
         style={{
           background:
-            "radial-gradient(circle, oklch(0.82 0.13 320 / 0.45) 0%, transparent 70%)",
+            "radial-gradient(circle at 70% 50%, oklch(0.78 0.14 320 / 0.5), transparent 65%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -bottom-40 left-1/2 h-[32rem] w-[32rem] -translate-x-1/2 rounded-full blur-[110px] opacity-50 animate-blob-3"
+        style={{
+          background:
+            "radial-gradient(circle, oklch(0.7 0.18 250 / 0.45), transparent 65%)",
         }}
       />
 
-      {/* Noise sutil */}
+      {/* Subtle drifting grid */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.025] mix-blend-overlay"
+        className="pointer-events-none absolute inset-0 opacity-[0.35] animate-grid-drift"
+        style={{
+          backgroundImage:
+            "linear-gradient(oklch(0.18 0.02 295 / 0.05) 1px, transparent 1px), linear-gradient(90deg, oklch(0.18 0.02 295 / 0.05) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+          maskImage:
+            "radial-gradient(ellipse at center, black 20%, transparent 75%)",
+        }}
+      />
+
+      {/* Noise grain */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.04] mix-blend-multiply"
         style={{
           backgroundImage:
             "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
@@ -59,25 +80,42 @@ function Index() {
       />
 
       <div className="relative mx-auto flex min-h-screen max-w-md flex-col px-6 py-14">
-        {/* Logo */}
+        {/* Logo with 3D float + pulsing aura */}
         <header className="flex flex-col items-center text-center">
-          <div className="animate-rise">
+          <div className="relative animate-rise">
+            <div
+              aria-hidden
+              className="absolute inset-0 -m-6 rounded-full animate-ring-pulse"
+              style={{
+                background:
+                  "radial-gradient(circle, oklch(0.7 0.22 300 / 0.35), transparent 60%)",
+              }}
+            />
+            <div
+              aria-hidden
+              className="absolute inset-0 -m-10 rounded-full animate-ring-pulse"
+              style={{
+                animationDelay: "1.5s",
+                background:
+                  "radial-gradient(circle, oklch(0.78 0.14 320 / 0.3), transparent 60%)",
+              }}
+            />
             <img
               src={logo}
               alt="SET Tecnologia"
-              className="h-32 w-auto object-contain animate-float-soft"
+              className="relative h-32 w-auto object-contain animate-float-3d drop-shadow-[0_20px_30px_rgba(80,30,160,0.25)]"
             />
           </div>
 
           <p
-            className="mt-10 text-[11px] font-medium uppercase tracking-[0.28em] text-muted-foreground animate-rise"
+            className="mt-10 text-[11px] font-semibold uppercase tracking-[0.3em] text-muted-foreground animate-rise"
             style={{ animationDelay: "0.1s" }}
           >
             Atendimento Digital
           </p>
 
           <h1
-            className="mt-4 text-balance text-[2.1rem] font-semibold leading-[1.08] text-foreground sm:text-[2.5rem] animate-rise"
+            className="mt-4 text-balance text-[2rem] font-bold leading-[1.08] text-foreground sm:text-[2.4rem] animate-rise"
             style={{ animationDelay: "0.2s" }}
           >
             Soluções para sua empresa{" "}
@@ -86,7 +124,7 @@ function Index() {
           </h1>
 
           <p
-            className="mt-5 max-w-sm text-pretty text-[15px] font-light leading-relaxed text-muted-foreground animate-rise"
+            className="mt-5 max-w-sm text-pretty text-[15px] font-normal leading-relaxed text-muted-foreground animate-rise"
             style={{ animationDelay: "0.3s" }}
           >
             Sistemas, automações com IA, marketing e design em um só lugar.
@@ -95,7 +133,7 @@ function Index() {
 
         {/* Botões */}
         <section
-          className="mt-14 space-y-3 animate-rise"
+          className="mt-12 space-y-3 animate-rise"
           style={{ animationDelay: "0.45s" }}
         >
           {/* WhatsApp — primário */}
@@ -103,46 +141,61 @@ function Index() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative flex w-full items-center gap-4 overflow-hidden rounded-2xl bg-foreground px-5 py-[18px] text-background transition-all duration-300 hover:scale-[1.015] active:scale-[0.99]"
-            style={{ boxShadow: "0 10px 40px -10px oklch(1 0 0 / 0.18)" }}
+            className="group relative flex w-full items-center gap-4 overflow-hidden rounded-2xl px-5 py-[18px] text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
+            style={{
+              background:
+                "linear-gradient(135deg, oklch(0.5 0.22 300), oklch(0.62 0.22 315))",
+              boxShadow:
+                "0 1px 0 rgba(255,255,255,0.25) inset, 0 18px 40px -12px oklch(0.5 0.22 300 / 0.55), 0 4px 10px rgba(0,0,0,0.08)",
+            }}
           >
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-background/10">
+            <span
+              aria-hidden
+              className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full"
+            />
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/15 backdrop-blur-sm">
               <MessageCircle className="h-[18px] w-[18px]" strokeWidth={2.2} />
             </div>
-            <div className="flex-1 text-left">
+            <div className="relative flex-1 text-left">
               <div className="text-[15px] font-semibold leading-tight tracking-tight">
                 Solicite um diagnóstico
               </div>
-              <div className="text-[12px] font-light text-background/60">
+              <div className="text-[12px] font-normal text-white/75">
                 Fale com o time no WhatsApp
               </div>
             </div>
             <ArrowUpRight
-              className="h-[18px] w-[18px] opacity-60 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100"
+              className="relative h-[18px] w-[18px] opacity-80 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               strokeWidth={2.2}
             />
           </a>
 
-          {/* Site — secundário */}
+          {/* Site — glass secundário */}
           <a
             href={SITE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative flex w-full items-center gap-4 overflow-hidden rounded-2xl border border-border bg-card/60 px-5 py-[18px] text-foreground backdrop-blur-xl transition-all duration-300 hover:scale-[1.015] hover:bg-card/80 hover:border-primary/40 active:scale-[0.99]"
+            className="glass group relative flex w-full items-center gap-4 overflow-hidden rounded-2xl px-5 py-[18px] text-foreground transition-all duration-300 hover:-translate-y-0.5"
           >
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-foreground/[0.06]">
+            <div
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-primary-foreground"
+              style={{
+                background:
+                  "linear-gradient(135deg, oklch(0.5 0.22 300), oklch(0.62 0.22 315))",
+              }}
+            >
               <Globe className="h-[18px] w-[18px]" strokeWidth={2.2} />
             </div>
             <div className="flex-1 text-left">
               <div className="text-[15px] font-semibold leading-tight tracking-tight">
                 Conheça a SET
               </div>
-              <div className="text-[12px] font-light text-muted-foreground">
+              <div className="text-[12px] font-normal text-muted-foreground">
                 settecnologia.com
               </div>
             </div>
             <ArrowUpRight
-              className="h-[18px] w-[18px] text-muted-foreground transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-foreground"
+              className="h-[18px] w-[18px] text-muted-foreground transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary"
               strokeWidth={2.2}
             />
           </a>
@@ -153,7 +206,7 @@ function Index() {
           className="mt-auto pt-16 text-center animate-rise"
           style={{ animationDelay: "0.6s" }}
         >
-          <p className="text-[11px] font-light uppercase tracking-[0.3em] text-muted-foreground/70">
+          <p className="text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground/80">
             © {new Date().getFullYear()} SET Tecnologia
           </p>
         </footer>

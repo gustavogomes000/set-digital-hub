@@ -1,7 +1,7 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -12,7 +12,6 @@
   --radius-xl: calc(var(--radius) + 4px);
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -32,32 +31,31 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-ring-offset-background: var(--background);
 }
 
 :root {
-  --radius: 0.875rem;
-  /* SET Tecnologia — Apple-like dark */
-  --background: oklch(0.08 0.005 290);
-  --foreground: oklch(0.98 0.005 300);
-  --card: oklch(0.12 0.01 290);
-  --card-foreground: oklch(0.98 0.005 300);
-  --popover: oklch(0.12 0.01 290);
-  --popover-foreground: oklch(0.98 0.005 300);
-  --primary: oklch(0.62 0.2 300);
+  --radius: 1rem;
+  /* SET Tecnologia — Light Apple/Google */
+  --background: oklch(0.945 0 0);          /* #EBEBEB */
+  --foreground: oklch(0.18 0.02 295);
+  --card: oklch(1 0 0 / 0.7);
+  --card-foreground: oklch(0.18 0.02 295);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.02 295);
+  --primary: oklch(0.5 0.22 300);           /* SET roxo */
   --primary-foreground: oklch(0.99 0 0);
-  --primary-glow: oklch(0.78 0.16 315);
-  --secondary: oklch(0.18 0.02 295);
-  --secondary-foreground: oklch(0.98 0.005 300);
-  --muted: oklch(0.16 0.01 290);
-  --muted-foreground: oklch(0.65 0.02 300);
-  --accent: oklch(0.82 0.13 320);
-  --accent-foreground: oklch(0.15 0.02 295);
+  --primary-glow: oklch(0.72 0.2 315);
+  --secondary: oklch(0.9 0.01 290);
+  --secondary-foreground: oklch(0.2 0.02 295);
+  --muted: oklch(0.92 0 0);
+  --muted-foreground: oklch(0.45 0.02 295);
+  --accent: oklch(0.78 0.14 320);
+  --accent-foreground: oklch(0.18 0.02 295);
   --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(1 0 0 / 0.08);
-  --input: oklch(1 0 0 / 0.1);
-  --ring: oklch(0.62 0.2 300);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.18 0.02 295 / 0.08);
+  --input: oklch(0.18 0.02 295 / 0.1);
+  --ring: oklch(0.5 0.22 300);
 }
 
 @layer base {
@@ -67,48 +65,75 @@
     color: var(--color-foreground);
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
-    font-feature-settings: "ss01", "cv11";
     letter-spacing: -0.011em;
   }
   h1, h2, h3 {
     font-family: "Inter", -apple-system, "SF Pro Display", system-ui, sans-serif;
-    letter-spacing: -0.035em;
-    font-weight: 600;
+    letter-spacing: -0.038em;
+    font-weight: 700;
   }
 }
 
-/* Minimal animations — Apple-style */
-@keyframes aurora {
-  0%, 100% { transform: translate3d(-10%, -5%, 0) scale(1); opacity: 0.55; }
-  50%      { transform: translate3d(10%, 5%, 0) scale(1.15); opacity: 0.75; }
+/* === 3D mesh background === */
+@keyframes blob-1 {
+  0%, 100% { transform: translate3d(-12%, -8%, 0) scale(1) rotate(0deg); }
+  33%      { transform: translate3d(18%, 6%, 0) scale(1.15) rotate(40deg); }
+  66%      { transform: translate3d(-6%, 20%, 0) scale(0.95) rotate(-20deg); }
 }
-@keyframes aurora-2 {
-  0%, 100% { transform: translate3d(8%, 6%, 0) scale(1.05); opacity: 0.45; }
-  50%      { transform: translate3d(-8%, -6%, 0) scale(0.95); opacity: 0.65; }
+@keyframes blob-2 {
+  0%, 100% { transform: translate3d(14%, 10%, 0) scale(1.1) rotate(0deg); }
+  50%      { transform: translate3d(-18%, -12%, 0) scale(0.9) rotate(-60deg); }
+}
+@keyframes blob-3 {
+  0%, 100% { transform: translate3d(0%, 8%, 0) scale(1); }
+  50%      { transform: translate3d(10%, -10%, 0) scale(1.2); }
+}
+@keyframes grid-drift {
+  from { background-position: 0 0; }
+  to   { background-position: 60px 60px; }
 }
 @keyframes rise {
-  from { opacity: 0; transform: translateY(14px); filter: blur(6px); }
+  from { opacity: 0; transform: translateY(16px); filter: blur(8px); }
   to   { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
-@keyframes float-soft {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-6px); }
+@keyframes float-3d {
+  0%, 100% { transform: perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0); }
+  25%      { transform: perspective(800px) rotateX(4deg) rotateY(-6deg) translateY(-4px); }
+  75%      { transform: perspective(800px) rotateX(-3deg) rotateY(6deg) translateY(-6px); }
 }
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
+@keyframes ring-pulse {
+  0%   { transform: scale(0.95); opacity: 0.5; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
 
-.animate-aurora { animation: aurora 18s ease-in-out infinite; }
-.animate-aurora-2 { animation: aurora-2 22s ease-in-out infinite; }
+.animate-blob-1 { animation: blob-1 22s ease-in-out infinite; }
+.animate-blob-2 { animation: blob-2 28s ease-in-out infinite; }
+.animate-blob-3 { animation: blob-3 18s ease-in-out infinite; }
+.animate-grid-drift { animation: grid-drift 20s linear infinite; }
 .animate-rise { animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
-.animate-float-soft { animation: float-soft 6s ease-in-out infinite; }
+.animate-float-3d { animation: float-3d 9s ease-in-out infinite; transform-style: preserve-3d; }
+.animate-ring-pulse { animation: ring-pulse 3s ease-out infinite; }
 
 .shimmer-text {
-  background: linear-gradient(90deg, oklch(0.98 0.005 300) 0%, oklch(0.78 0.16 315) 50%, oklch(0.98 0.005 300) 100%);
+  background: linear-gradient(90deg, oklch(0.5 0.22 300) 0%, oklch(0.72 0.2 315) 50%, oklch(0.5 0.22 300) 100%);
   background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: shimmer 6s linear infinite;
+  animation: shimmer 5s linear infinite;
+}
+
+.glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.45));
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid rgba(255,255,255,0.6);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.9) inset,
+    0 10px 30px -10px rgba(80, 30, 160, 0.18),
+    0 2px 6px rgba(0,0,0,0.04);
 }
