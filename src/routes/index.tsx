@@ -91,28 +91,30 @@ function Index() {
 
       {/* Floating particles */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
-        {Array.from({ length: 14 }).map((_, i) => {
-          const left = (i * 37) % 100;
-          const delay = (i % 7) * 0.8;
-          const dur = 9 + (i % 5) * 2;
-          const px = ((i * 53) % 80) - 40;
-          const py = -80 - ((i * 17) % 60);
-          const size = 3 + (i % 3);
+        {Array.from({ length: 36 }).map((_, i) => {
+          const left = (i * 37 + 7) % 100;
+          const top = (i * 53 + 11) % 100;
+          const delay = (i % 9) * 0.7;
+          const dur = 8 + (i % 6) * 2;
+          const px = ((i * 73) % 120) - 60;
+          const py = ((i * 41) % 120) - 60;
+          const size = 2 + (i % 4);
           return (
             <span
               key={i}
-              className="absolute bottom-0 rounded-full"
+              className="absolute rounded-full"
               style={{
                 left: `${left}%`,
+                top: `${top}%`,
                 width: size,
                 height: size,
                 background:
                   i % 2 === 0
                     ? "oklch(0.6 0.22 300 / 0.7)"
                     : "oklch(0.78 0.14 320 / 0.7)",
-                boxShadow: "0 0 12px currentColor",
+                boxShadow: "0 0 10px currentColor",
                 color: i % 2 === 0 ? "oklch(0.6 0.22 300 / 0.6)" : "oklch(0.78 0.14 320 / 0.6)",
-                animation: `particle-float ${dur}s linear ${delay}s infinite`,
+                animation: `particle-drift ${dur}s ease-in-out ${delay}s infinite`,
                 ["--px" as never]: `${px}px`,
                 ["--py" as never]: `${py}px`,
               }}
