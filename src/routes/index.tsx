@@ -77,6 +77,46 @@ function Index() {
           animationDelay: "2s",
         }}
       />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-1/2 left-1/4 h-[12rem] w-[12rem] rounded-full blur-[70px] opacity-60 animate-orb-pulse mix-blend-screen"
+        style={{
+          background: "radial-gradient(circle, oklch(0.7 0.22 280 / 0.6), transparent 70%)",
+          animationDelay: "1s",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-1/3 right-12 h-[16rem] w-[16rem] rounded-full blur-[85px] opacity-55 animate-orb-pulse mix-blend-screen"
+        style={{
+          background: "radial-gradient(circle, oklch(0.75 0.2 260 / 0.55), transparent 70%)",
+          animationDelay: "3.5s",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-1/4 left-1/3 h-[10rem] w-[10rem] rounded-full blur-[60px] opacity-55 animate-orb-pulse mix-blend-screen"
+        style={{
+          background: "radial-gradient(circle, oklch(0.85 0.14 320 / 0.6), transparent 70%)",
+          animationDelay: "0.5s",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-10 right-1/3 h-[13rem] w-[13rem] rounded-full blur-[75px] opacity-55 animate-orb-pulse mix-blend-screen"
+        style={{
+          background: "radial-gradient(circle, oklch(0.78 0.18 295 / 0.55), transparent 70%)",
+          animationDelay: "4.2s",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-2/3 left-1/2 h-[9rem] w-[9rem] rounded-full blur-[55px] opacity-60 animate-orb-pulse mix-blend-screen"
+        style={{
+          background: "radial-gradient(circle, oklch(0.8 0.2 310 / 0.6), transparent 70%)",
+          animationDelay: "2.8s",
+        }}
+      />
 
       {/* Aurora sweep */}
       <div
@@ -221,35 +261,19 @@ function Index() {
             />
           </a>
 
-          {/* Site — glass secundário */}
-          <a
-            href={SITE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="glass group relative flex w-full items-center gap-3 overflow-hidden rounded-2xl px-4 py-3.5 text-foreground transition-all duration-300 hover:-translate-y-0.5"
-          >
-            <div
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-primary-foreground"
-              style={{
-                background:
-                  "linear-gradient(135deg, oklch(0.5 0.22 300), oklch(0.62 0.22 315))",
-              }}
+          {/* Site — temporariamente oculto */}
+          {false && (
+            <a
+              href={SITE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass group relative flex w-full items-center gap-3 overflow-hidden rounded-2xl px-4 py-3.5 text-foreground transition-all duration-300 hover:-translate-y-0.5"
             >
               <Globe className="h-[16px] w-[16px]" strokeWidth={2.2} />
-            </div>
-            <div className="flex-1 text-left">
-              <div className="text-[14px] font-semibold leading-tight tracking-tight">
-                Conheça a SET
-              </div>
-              <div className="text-[11px] font-normal text-muted-foreground">
-                settecnologia.com
-              </div>
-            </div>
-            <ArrowUpRight
-              className="h-[16px] w-[16px] text-muted-foreground transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary"
-              strokeWidth={2.2}
-            />
-          </a>
+              <span>Conheça a SET</span>
+              <ArrowUpRight className="h-[16px] w-[16px]" strokeWidth={2.2} />
+            </a>
+          )}
         </section>
 
         {/* Rodapé */}
