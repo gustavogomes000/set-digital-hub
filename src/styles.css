@@ -1,6 +1,7 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -63,25 +64,31 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  /* SET Tecnologia brand */
+  --background: oklch(0.971 0 0); /* #F5F5F5 técnico */
+  --foreground: oklch(0.18 0.09 295); /* #160A3D roxo profundo */
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
+  --card-foreground: oklch(0.18 0.09 295);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.18 0.09 295);
+  --primary: oklch(0.32 0.18 290); /* #311B92 índigo */
+  --primary-foreground: oklch(0.98 0 0);
+  --primary-glow: oklch(0.55 0.18 305);
+  --secondary: oklch(0.95 0.02 305);
+  --secondary-foreground: oklch(0.18 0.09 295);
+  --muted: oklch(0.95 0.015 305);
+  --muted-foreground: oklch(0.45 0.05 295);
+  --accent: oklch(0.78 0.12 320); /* #CE93D8 lavanda */
+  --accent-foreground: oklch(0.18 0.09 295);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --border: oklch(0.9 0.02 300);
+  --input: oklch(0.9 0.02 300);
+  --ring: oklch(0.32 0.18 290);
+  --gradient-primary: linear-gradient(135deg, oklch(0.32 0.18 290), oklch(0.55 0.18 305));
+  --gradient-bg: radial-gradient(ellipse at top, oklch(0.95 0.04 305) 0%, oklch(0.971 0 0) 60%);
+  --shadow-glow: 0 20px 50px -12px oklch(0.32 0.18 290 / 0.45);
+  --shadow-card: 0 4px 24px -8px oklch(0.18 0.09 295 / 0.12);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -140,5 +147,7 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
 }
