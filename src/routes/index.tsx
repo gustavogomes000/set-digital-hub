@@ -235,14 +235,18 @@ function Index() {
             Atendimento Digital
           </p>
 
-          <h1
-            className="mt-3 text-balance text-[1.75rem] font-semibold leading-[1.05] tracking-[-0.035em] text-foreground animate-rise"
-            style={{ animationDelay: "0.2s" }}
-          >
-            Soluções para sua empresa{" "}
-            <span className="shimmer-text">vender mais</span>{" "}
-            e ganhar produtividade.
-          </h1>
+           <div 
+             className="mt-4 flex flex-col items-center gap-1 animate-rise"
+             style={{ animationDelay: "0.2s" }}
+           >
+             <h1 className="text-balance text-[2rem] font-bold leading-[1.1] tracking-[-0.04em] text-foreground">
+               Soluções para sua empresa
+             </h1>
+             <div className="flex flex-wrap justify-center gap-x-2 text-[2rem] font-bold leading-[1.1] tracking-[-0.04em]">
+               <span className="shimmer-text">vender mais</span>
+               <span className="text-foreground">e evoluir.</span>
+             </div>
+           </div>
 
           <p
             className="mt-3 max-w-[20rem] text-pretty text-[14px] font-normal leading-[1.45] tracking-[-0.01em] text-muted-foreground animate-rise"
