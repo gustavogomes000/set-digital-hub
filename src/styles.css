@@ -167,9 +167,28 @@
    0%, 100% { transform: scale(1) translate3d(0,0,0); filter: blur(70px) saturate(1); opacity: 0.4; }
    50%      { transform: scale(1.4) translate3d(30px,-20px,0); filter: blur(90px) saturate(1.4); opacity: 0.65; }
  @keyframes aurora-flow {
-   0%, 100% { transform: translate3d(-15%, -10%, 0) rotate(0deg) scale(1); opacity: 0.3; }
-   50%      { transform: translate3d(15%, 10%, 0) rotate(5deg) scale(1.1); opacity: 0.5; }
+   0%, 100% { transform: translate3d(-20%, -15%, 0) rotate(0deg) scale(1); opacity: 0.4; filter: blur(120px) hue-rotate(0deg); }
+   50%      { transform: translate3d(20%, 15%, 0) rotate(10deg) scale(1.2); opacity: 0.6; filter: blur(140px) hue-rotate(60deg); }
  }
+ 
+ @keyframes glass-shine {
+   0% { transform: translateX(-150%) skewX(-25deg); }
+   100% { transform: translateX(150%) skewX(-25deg); }
+ }
+ 
+ @keyframes pulse-soft {
+   0%, 100% { opacity: 1; transform: scale(1); }
+   50% { opacity: 0.8; transform: scale(0.98); }
+ }
+ 
+ .animate-glass-shine {
+   animation: glass-shine 3s ease-in-out infinite;
+ }
+ 
+ .animate-pulse-soft {
+   animation: pulse-soft 2s ease-in-out infinite;
+ }
+ 
  .animate-aurora-flow { animation: aurora-flow 25s ease-in-out infinite alternate; }
  
 }
