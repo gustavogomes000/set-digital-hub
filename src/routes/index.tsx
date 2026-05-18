@@ -59,29 +59,43 @@ function Index() {
         }}
       />
 
-       {/* Ultra-Dynamic Atmospheric Background */}
-       <div className="absolute inset-0 overflow-hidden pointer-events-none">
+       {/* SET Tech High-Energy Background */}
+       <div className="absolute inset-0 overflow-hidden pointer-events-none bg-[#050505]">
+         {/* Dynamic Nebula Clouds */}
          <div
            aria-hidden
-           className="absolute -top-[20%] -left-[20%] h-[80rem] w-[80rem] rounded-full animate-aurora-flow mix-blend-plus-lighter opacity-40"
+           className="absolute -top-[10%] -left-[10%] h-[120%] w-[120%] animate-aurora-flow opacity-60"
            style={{
-             background: "radial-gradient(circle at center, oklch(0.6 0.25 300 / 0.5), oklch(0.7 0.2 330 / 0.3) 40%, transparent 70%)",
+             background: "radial-gradient(circle at center, oklch(0.55 0.3 300 / 0.4), oklch(0.65 0.25 330 / 0.2) 30%, transparent 60%)",
            }}
          />
          <div
            aria-hidden
-           className="absolute -bottom-[20%] -right-[20%] h-[75rem] w-[75rem] rounded-full animate-aurora-flow mix-blend-plus-lighter opacity-35"
+           className="absolute -bottom-[20%] -right-[20%] h-[100%] w-[100%] animate-aurora-flow opacity-50"
            style={{
-             background: "radial-gradient(circle at center, oklch(0.75 0.2 280 / 0.4), oklch(0.65 0.15 310 / 0.2) 45%, transparent 70%)",
-             animationDelay: "-12.5s",
+             background: "radial-gradient(circle at center, oklch(0.5 0.3 280 / 0.4), oklch(0.6 0.25 310 / 0.2) 35%, transparent 65%)",
+             animationDelay: "-8s",
            }}
          />
+         
+         {/* Core Energy Glow */}
          <div
            aria-hidden
-           className="absolute top-1/4 left-0 h-[40rem] w-[40rem] rounded-full animate-morph-slow mix-blend-overlay opacity-30"
+           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[50rem] w-[50rem] rounded-full animate-energy opacity-30 mix-blend-screen"
            style={{
-             background: "conic-gradient(from 0deg, oklch(0.6 0.2 300), oklch(0.8 0.15 330), oklch(0.6 0.2 300))",
-             filter: "blur(100px)",
+             background: "radial-gradient(circle, oklch(0.6 0.3 300 / 0.6), transparent 70%)",
+           }}
+         />
+ 
+         {/* Digital Grid Lines */}
+         <div
+           aria-hidden
+           className="absolute inset-0 opacity-[0.15]"
+           style={{
+             backgroundImage: `linear-gradient(to right, oklch(0.5 0.25 300 / 0.2) 1px, transparent 1px), 
+                               linear-gradient(to bottom, oklch(0.5 0.25 300 / 0.2) 1px, transparent 1px)`,
+             backgroundSize: "40px 40px",
+             maskImage: "radial-gradient(circle at center, black, transparent 80%)",
            }}
          />
        </div>
@@ -246,15 +260,15 @@ function Index() {
           </p>
 
            <div 
-             className="mt-5 flex flex-col items-center gap-1.5 animate-rise"
+             className="mt-6 flex flex-col items-center gap-2 animate-rise"
              style={{ animationDelay: "0.2s" }}
            >
-             <h1 className="text-balance text-[2.4rem] font-bold leading-[1.05] tracking-[-0.05em] text-foreground">
+             <h1 className="text-balance text-[2.6rem] font-black leading-[1] tracking-[-0.06em] text-white">
                Soluções para sua empresa
              </h1>
-             <div className="flex flex-wrap justify-center gap-x-2.5 text-[2.4rem] font-bold leading-[1.05] tracking-[-0.05em]">
+             <div className="flex flex-wrap justify-center gap-x-3 text-[2.6rem] font-black leading-[1] tracking-[-0.06em]">
                <span className="shimmer-text">vender mais</span>
-               <span className="text-foreground">e evoluir.</span>
+               <span className="text-white">e evoluir.</span>
              </div>
            </div>
 
