@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import logo from "@/assets/set-logo.png";
-import { MessageCircle, Code2, Bot, Sparkles } from "lucide-react";
+import { MessageCircle, Globe, ArrowUpRight } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -9,13 +9,12 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Sistemas, automações com IA, marketing e design para sua empresa vender mais e crescer no digital.",
+          "Fale com o time da SET Tecnologia pelo WhatsApp ou conheça nosso site. Sistemas, IA, marketing e design em um só lugar.",
       },
       { property: "og:title", content: "SET Tecnologia" },
       {
         property: "og:description",
-        content:
-          "Tudo que sua empresa precisa para crescer no digital, em um só lugar.",
+        content: "Tecnologia, marketing e design em um só lugar.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -27,24 +26,7 @@ export const Route = createFileRoute("/")({
 
 const WHATSAPP_URL =
   "https://wa.me/5562994603799?text=Ol%C3%A1%2C%20vim%20pelo%20Instagram%20da%20SET%20Tecnologia%20e%20quero%20falar%20com%20o%20time%20sobre%20um%20diagn%C3%B3stico%20para%20minha%20empresa.";
-
-const services = [
-  {
-    icon: Code2,
-    title: "Desenvolvimento",
-    desc: "Sites, sistemas, aplicativos e plataformas digitais.",
-  },
-  {
-    icon: Bot,
-    title: "Automações com IA",
-    desc: "Fluxos inteligentes para atendimento, vendas e processos.",
-  },
-  {
-    icon: Sparkles,
-    title: "Marketing e Design",
-    desc: "Estratégias, conteúdos e identidade visual para sua marca crescer.",
-  },
-];
+const SITE_URL = "https://settecnologia.com";
 
 function Index() {
   return (
@@ -52,104 +34,146 @@ function Index() {
       className="relative min-h-screen overflow-hidden"
       style={{ background: "var(--gradient-bg)" }}
     >
-      {/* Grid de fundo sutil */}
+      {/* Grid técnico */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.06]"
+        className="pointer-events-none absolute inset-0 opacity-[0.07]"
         style={{
           backgroundImage:
             "linear-gradient(var(--color-primary) 1px, transparent 1px), linear-gradient(90deg, var(--color-primary) 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
+          backgroundSize: "56px 56px",
           maskImage:
-            "radial-gradient(ellipse at center, black 40%, transparent 80%)",
+            "radial-gradient(ellipse at center, black 35%, transparent 80%)",
         }}
       />
-      {/* Glow superior */}
+      {/* Glows */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full blur-3xl opacity-40"
+        className="pointer-events-none absolute -top-40 left-1/2 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full blur-3xl opacity-30"
         style={{ background: "var(--gradient-primary)" }}
       />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-0 right-0 h-72 w-72 translate-x-1/3 translate-y-1/3 rounded-full blur-3xl opacity-20"
+        style={{ background: "var(--color-accent)" }}
+      />
+      {/* Linhas de circuito decorativas */}
+      <svg
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-40 w-full opacity-[0.08]"
+        viewBox="0 0 400 160"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0 80 H120 L140 60 H260 L280 80 H400"
+          stroke="currentColor"
+          strokeWidth="1"
+          fill="none"
+          className="text-primary"
+        />
+        <circle cx="140" cy="60" r="2" className="fill-primary" />
+        <circle cx="280" cy="80" r="2" className="fill-primary" />
+      </svg>
 
-      <div className="relative mx-auto flex min-h-screen max-w-md flex-col px-6 py-10">
-        {/* Topo */}
+      <div className="relative mx-auto flex min-h-screen max-w-md flex-col px-6 pb-10 pt-12">
+        {/* Logo */}
         <header className="flex flex-col items-center text-center">
           <div className="relative">
             <div
               aria-hidden
-              className="absolute inset-0 rounded-full blur-2xl opacity-50"
+              className="absolute inset-0 -m-6 rounded-full blur-3xl opacity-40"
               style={{ background: "var(--gradient-primary)" }}
             />
             <img
               src={logo}
               alt="SET Tecnologia"
-              className="relative h-32 w-auto object-contain drop-shadow-xl"
+              className="relative h-40 w-auto object-contain"
             />
           </div>
 
-          <h1 className="mt-6 text-3xl font-extrabold tracking-tight text-foreground">
-            SET Tecnologia
+          {/* Badge tecnológico */}
+          <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-[11px] font-medium uppercase tracking-widest text-primary backdrop-blur-sm">
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />
+            Atendimento Digital
+          </div>
+
+          <h1 className="mt-5 text-balance bg-clip-text text-4xl font-extrabold leading-[1.05] tracking-tight text-foreground sm:text-[2.6rem]">
+            Tecnologia que faz sua{" "}
+            <span
+              className="bg-clip-text text-transparent"
+              style={{ backgroundImage: "var(--gradient-primary)" }}
+            >
+              empresa crescer
+            </span>
           </h1>
-          <p className="mt-3 text-base font-medium text-foreground/80">
-            Tudo que sua empresa precisa para crescer no digital, em um só
-            lugar.
-          </p>
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Sistemas para melhorar processos, automações com IA, marketing e
-            design para sua empresa vender mais, ganhar produtividade e se
-            destacar no digital.
+
+          <p className="mt-4 max-w-sm text-pretty text-sm leading-relaxed text-muted-foreground">
+            Sistemas, automações com IA, marketing e design em um só lugar.
+            Escolha abaixo como prefere começar.
           </p>
         </header>
 
-        {/* CTA */}
-        <section className="mt-8">
+        {/* Instrução */}
+        <p className="mt-10 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+          Clique em uma das opções
+        </p>
+
+        {/* Botões */}
+        <section className="mt-4 space-y-3">
+          {/* WhatsApp — primário */}
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative flex w-full items-center justify-center gap-3 rounded-2xl px-6 py-4 text-base font-semibold text-primary-foreground transition-all duration-300 hover:scale-[1.02] hover:brightness-110"
+            className="group relative flex w-full items-center gap-4 overflow-hidden rounded-2xl px-5 py-4 text-left text-primary-foreground transition-all duration-300 hover:scale-[1.02] hover:brightness-110"
             style={{
               background: "var(--gradient-primary)",
               boxShadow: "var(--shadow-glow)",
             }}
           >
-            <MessageCircle className="h-5 w-5" />
-            Fale com nosso time
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/15 backdrop-blur-sm">
+              <MessageCircle className="h-5 w-5" />
+            </div>
+            <div className="flex-1">
+              <div className="text-base font-semibold leading-tight">
+                Fale com nosso time
+              </div>
+              <div className="text-xs text-white/75">
+                Solicite seu diagnóstico no WhatsApp
+              </div>
+            </div>
+            <ArrowUpRight className="h-5 w-5 opacity-70 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
-          <p className="mt-3 text-center text-xs text-muted-foreground">
-            Clique no botão para falar com nosso time e solicitar um
-            diagnóstico digital para sua empresa.
-          </p>
-        </section>
 
-        {/* Serviços */}
-        <section className="mt-10 space-y-3">
-          {services.map(({ icon: Icon, title, desc }) => (
-            <article
-              key={title}
-              className="flex items-start gap-4 rounded-xl border border-border bg-card/70 p-4 backdrop-blur-sm transition-all hover:border-primary/40 hover:bg-card"
-              style={{ boxShadow: "var(--shadow-card)" }}
+          {/* Site — secundário */}
+          <a
+            href={SITE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative flex w-full items-center gap-4 overflow-hidden rounded-2xl border border-primary/20 bg-card/80 px-5 py-4 text-left text-foreground backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:border-primary/50 hover:bg-card"
+            style={{ boxShadow: "var(--shadow-card)" }}
+          >
+            <div
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-primary-foreground"
+              style={{ background: "var(--gradient-primary)" }}
             >
-              <div
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-primary-foreground"
-                style={{ background: "var(--gradient-primary)" }}
-              >
-                <Icon className="h-5 w-5" />
+              <Globe className="h-5 w-5" />
+            </div>
+            <div className="flex-1">
+              <div className="text-base font-semibold leading-tight">
+                Conheça a SET
               </div>
-              <div className="text-left">
-                <h2 className="text-sm font-semibold text-foreground">
-                  {title}
-                </h2>
-                <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
-                  {desc}
-                </p>
+              <div className="text-xs text-muted-foreground">
+                Visite nosso site oficial
               </div>
-            </article>
-          ))}
+            </div>
+            <ArrowUpRight className="h-5 w-5 text-primary opacity-70 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
         </section>
 
         {/* Rodapé */}
-        <footer className="mt-auto pt-10 text-center">
+        <footer className="mt-auto pt-12 text-center">
+          <div className="mx-auto mb-4 h-px w-16 bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
           <p className="text-sm font-semibold text-foreground">
             SET Tecnologia
           </p>
@@ -157,7 +181,7 @@ function Index() {
             Tecnologia, marketing e design em um só lugar.
           </p>
           <a
-            href="https://settecnologia.com"
+            href={SITE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-3 inline-block text-xs font-medium text-primary transition-colors hover:text-accent"
@@ -169,4 +193,3 @@ function Index() {
     </main>
   );
 }
-
