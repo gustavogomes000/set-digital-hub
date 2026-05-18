@@ -59,7 +59,24 @@ function Index() {
         }}
       />
 
-      {/* Extra pulsing orb */}
+       {/* Large Atmospheric Blooms */}
+       <div
+         aria-hidden
+         className="pointer-events-none absolute -top-[10%] -left-[10%] h-[60rem] w-[60rem] rounded-full blur-[140px] opacity-30 animate-aurora-flow mix-blend-soft-light"
+         style={{
+           background: "radial-gradient(circle, oklch(0.65 0.2 300 / 0.4), transparent 70%)",
+         }}
+       />
+       <div
+         aria-hidden
+         className="pointer-events-none absolute -bottom-[10%] -right-[10%] h-[55rem] w-[55rem] rounded-full blur-[130px] opacity-25 animate-aurora-flow mix-blend-soft-light"
+         style={{
+           background: "radial-gradient(circle, oklch(0.75 0.15 320 / 0.35), transparent 70%)",
+           animationDelay: "-12s",
+         }}
+       />
+ 
+       {/* Refined pulsing orbs */}
       <div
         aria-hidden
         className="pointer-events-none absolute top-10 right-1/4 h-[18rem] w-[18rem] rounded-full blur-[90px] opacity-50 animate-orb-pulse mix-blend-screen"

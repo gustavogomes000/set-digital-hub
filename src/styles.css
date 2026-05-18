@@ -36,7 +36,7 @@
 :root {
   --radius: 1rem;
   /* SET Tecnologia — Light Apple/Google */
-  --background: oklch(0.945 0 0);          /* #EBEBEB */
+   --background: oklch(0.92 0.01 295);      /* Ligeiramente mais profundo */
   --foreground: oklch(0.18 0.02 295);
   --card: oklch(1 0 0 / 0.7);
   --card-foreground: oklch(0.18 0.02 295);
@@ -164,8 +164,14 @@
   50%      { filter: blur(110px) hue-rotate(40deg) saturate(1.3); }
 }
 @keyframes orb-pulse {
-  0%, 100% { transform: scale(1) translate3d(0,0,0); opacity: 0.4; }
-  50%      { transform: scale(1.3) translate3d(20px,-15px,0); opacity: 0.7; }
+   0%, 100% { transform: scale(1) translate3d(0,0,0); filter: blur(70px) saturate(1); opacity: 0.4; }
+   50%      { transform: scale(1.4) translate3d(30px,-20px,0); filter: blur(90px) saturate(1.4); opacity: 0.65; }
+ @keyframes aurora-flow {
+   0%, 100% { transform: translate3d(-15%, -10%, 0) rotate(0deg) scale(1); opacity: 0.3; }
+   50%      { transform: translate3d(15%, 10%, 0) rotate(5deg) scale(1.1); opacity: 0.5; }
+ }
+ .animate-aurora-flow { animation: aurora-flow 25s ease-in-out infinite alternate; }
+ 
 }
 .animate-morph { animation: morph 24s ease-in-out infinite; }
 .animate-morph-slow { animation: morph-slow 30s ease-in-out infinite; }
