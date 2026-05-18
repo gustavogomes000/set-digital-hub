@@ -109,6 +109,24 @@
   0%   { transform: scale(0.95); opacity: 0.5; }
   100% { transform: scale(1.4); opacity: 0; }
 }
+@keyframes logo-reveal {
+  0%   { opacity: 0; transform: perspective(900px) rotateY(180deg) scale(0.4); filter: blur(14px); }
+  60%  { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; transform: perspective(900px) rotateY(0deg) scale(1); filter: blur(0); }
+}
+@keyframes conic-spin {
+  to { transform: rotate(1turn); }
+}
+@keyframes particle-float {
+  0%   { transform: translate3d(0,0,0); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translate3d(var(--px,20px), var(--py,-60px), 0); opacity: 0; }
+}
+@keyframes aurora-sweep {
+  0%, 100% { transform: translate3d(-30%, 0, 0) rotate(8deg); opacity: 0.55; }
+  50%      { transform: translate3d(30%, -10%, 0) rotate(-6deg); opacity: 0.85; }
+}
 
 .animate-blob-1 { animation: blob-1 22s ease-in-out infinite; }
 .animate-blob-2 { animation: blob-2 28s ease-in-out infinite; }
@@ -117,6 +135,9 @@
 .animate-rise { animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
 .animate-float-3d { animation: float-3d 9s ease-in-out infinite; transform-style: preserve-3d; }
 .animate-ring-pulse { animation: ring-pulse 3s ease-out infinite; }
+.animate-logo-reveal { animation: logo-reveal 1.6s cubic-bezier(0.2, 0.8, 0.2, 1) both; transform-style: preserve-3d; }
+.animate-conic-spin { animation: conic-spin 24s linear infinite; }
+.animate-aurora-sweep { animation: aurora-sweep 16s ease-in-out infinite; }
 
 .shimmer-text {
   background: linear-gradient(90deg, oklch(0.5 0.22 300) 0%, oklch(0.72 0.2 315) 50%, oklch(0.5 0.22 300) 100%);
