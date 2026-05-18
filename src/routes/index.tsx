@@ -77,6 +77,46 @@ function Index() {
           animationDelay: "2s",
         }}
       />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-1/2 left-1/4 h-[12rem] w-[12rem] rounded-full blur-[70px] opacity-60 animate-orb-pulse mix-blend-screen"
+        style={{
+          background: "radial-gradient(circle, oklch(0.7 0.22 280 / 0.6), transparent 70%)",
+          animationDelay: "1s",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-1/3 right-12 h-[16rem] w-[16rem] rounded-full blur-[85px] opacity-55 animate-orb-pulse mix-blend-screen"
+        style={{
+          background: "radial-gradient(circle, oklch(0.75 0.2 260 / 0.55), transparent 70%)",
+          animationDelay: "3.5s",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-1/4 left-1/3 h-[10rem] w-[10rem] rounded-full blur-[60px] opacity-55 animate-orb-pulse mix-blend-screen"
+        style={{
+          background: "radial-gradient(circle, oklch(0.85 0.14 320 / 0.6), transparent 70%)",
+          animationDelay: "0.5s",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-10 right-1/3 h-[13rem] w-[13rem] rounded-full blur-[75px] opacity-55 animate-orb-pulse mix-blend-screen"
+        style={{
+          background: "radial-gradient(circle, oklch(0.78 0.18 295 / 0.55), transparent 70%)",
+          animationDelay: "4.2s",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-2/3 left-1/2 h-[9rem] w-[9rem] rounded-full blur-[55px] opacity-60 animate-orb-pulse mix-blend-screen"
+        style={{
+          background: "radial-gradient(circle, oklch(0.8 0.2 310 / 0.6), transparent 70%)",
+          animationDelay: "2.8s",
+        }}
+      />
 
       {/* Aurora sweep */}
       <div
