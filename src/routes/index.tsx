@@ -125,50 +125,24 @@ function Index() {
         {/* Logo with 3D float + pulsing aura */}
         <header className="flex flex-col items-center text-center">
           <div className="relative">
-            {/* Conic glow ring behind logo */}
-            <div
-              aria-hidden
-              className="absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-60 blur-2xl animate-conic-spin"
-              style={{
-                background:
-                  "conic-gradient(from 0deg, oklch(0.7 0.22 300 / 0.7), oklch(0.82 0.14 320 / 0.6), oklch(0.7 0.18 250 / 0.5), oklch(0.7 0.22 300 / 0.7))",
-              }}
-            />
-            <div
-              aria-hidden
-              className="absolute inset-0 -m-4 rounded-full animate-ring-pulse"
-              style={{
-                background:
-                  "radial-gradient(circle, oklch(0.7 0.22 300 / 0.35), transparent 60%)",
-              }}
-            />
-            <div
-              aria-hidden
-              className="absolute inset-0 -m-8 rounded-full animate-ring-pulse"
-              style={{
-                animationDelay: "1.5s",
-                background:
-                  "radial-gradient(circle, oklch(0.78 0.14 320 / 0.3), transparent 60%)",
-              }}
-            />
             <div className="relative animate-logo-reveal">
               <img
                 src={logo}
                 alt="SET Tecnologia"
-                className="relative h-24 w-auto object-contain animate-float-3d drop-shadow-[0_18px_28px_rgba(80,30,160,0.3)]"
+                className="relative h-24 w-auto object-contain animate-float-3d"
               />
             </div>
           </div>
 
           <p
-            className="mt-6 text-[10px] font-semibold uppercase tracking-[0.3em] text-muted-foreground animate-rise"
+            className="mt-7 text-[11px] font-medium uppercase tracking-[0.32em] text-muted-foreground animate-rise"
             style={{ animationDelay: "0.1s" }}
           >
             Atendimento Digital
           </p>
 
           <h1
-            className="mt-3 text-balance text-[1.55rem] font-bold leading-[1.1] text-foreground animate-rise"
+            className="mt-3 text-balance text-[1.75rem] font-semibold leading-[1.05] tracking-[-0.035em] text-foreground animate-rise"
             style={{ animationDelay: "0.2s" }}
           >
             Soluções para sua empresa{" "}
@@ -177,7 +151,7 @@ function Index() {
           </h1>
 
           <p
-            className="mt-3 max-w-sm text-pretty text-[13px] font-normal leading-snug text-muted-foreground animate-rise"
+            className="mt-3 max-w-[20rem] text-pretty text-[14px] font-normal leading-[1.45] tracking-[-0.01em] text-muted-foreground animate-rise"
             style={{ animationDelay: "0.3s" }}
           >
             Sistemas, automações com IA, marketing e design em um só lugar.
