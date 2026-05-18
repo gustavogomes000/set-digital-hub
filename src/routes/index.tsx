@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import logo from "@/assets/set-logo.png";
-import { MessageCircle, Globe, ArrowUpRight } from "lucide-react";
+import { MessageCircle, Globe, ArrowUpRight, Sparkles } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -25,7 +25,7 @@ export const Route = createFileRoute("/")({
 });
 
 const WHATSAPP_URL =
-  "https://wa.me/5562994603799?text=Ol%C3%A1%2C%20vim%20pelo%20Instagram%20da%20SET%20Tecnologia%20e%20quero%20falar%20com%20o%20time%20sobre%20um%20diagn%C3%B3stico%20para%20minha%20empresa.";
+  "https://wa.me/5562994603799?text=Ol%C3%A1%2C%20vim%20pelo%20Instagram%20da%20SET%20Tecnologia%20e%20quero%20solicitar%20um%20diagn%C3%B3stico%20digital%20para%20a%20minha%20empresa.";
 const SITE_URL = "https://settecnologia.com";
 
 function Index() {
@@ -34,92 +34,120 @@ function Index() {
       className="relative min-h-screen overflow-hidden"
       style={{ background: "var(--gradient-bg)" }}
     >
-      {/* Grid técnico */}
+      {/* Animated grid */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.07]"
+        className="pointer-events-none absolute inset-0 opacity-[0.12] animate-grid-pan"
         style={{
           backgroundImage:
-            "linear-gradient(var(--color-primary) 1px, transparent 1px), linear-gradient(90deg, var(--color-primary) 1px, transparent 1px)",
+            "linear-gradient(oklch(0.72 0.2 315 / 0.5) 1px, transparent 1px), linear-gradient(90deg, oklch(0.72 0.2 315 / 0.5) 1px, transparent 1px)",
           backgroundSize: "56px 56px",
           maskImage:
-            "radial-gradient(ellipse at center, black 35%, transparent 80%)",
+            "radial-gradient(ellipse at center, black 30%, transparent 75%)",
         }}
       />
-      {/* Glows */}
+      {/* Floating orbs */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 left-1/2 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full blur-3xl opacity-30"
+        className="pointer-events-none absolute -top-32 -left-20 h-96 w-96 rounded-full blur-3xl opacity-40 animate-float-orb"
         style={{ background: "var(--gradient-primary)" }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute bottom-0 right-0 h-72 w-72 translate-x-1/3 translate-y-1/3 rounded-full blur-3xl opacity-20"
-        style={{ background: "var(--color-accent)" }}
+        className="pointer-events-none absolute top-1/3 -right-32 h-[28rem] w-[28rem] rounded-full blur-3xl opacity-30 animate-float-orb"
+        style={{ background: "radial-gradient(circle, oklch(0.82 0.13 320) 0%, transparent 70%)", animationDelay: "-5s" }}
       />
-      {/* Linhas de circuito decorativas */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-0 left-1/2 h-80 w-80 -translate-x-1/2 translate-y-1/3 rounded-full blur-3xl opacity-30 animate-pulse-glow"
+        style={{ background: "var(--gradient-primary)" }}
+      />
+      {/* Scan line */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-px animate-scan-line"
+        style={{ background: "linear-gradient(90deg, transparent, oklch(0.72 0.2 315 / 0.8), transparent)", boxShadow: "0 0 20px oklch(0.72 0.2 315 / 0.6)" }}
+      />
+      {/* Animated circuit lines */}
       <svg
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-40 w-full opacity-[0.08]"
-        viewBox="0 0 400 160"
+        className="pointer-events-none absolute inset-0 h-full w-full opacity-30"
+        viewBox="0 0 400 800"
         preserveAspectRatio="none"
       >
-        <path
-          d="M0 80 H120 L140 60 H260 L280 80 H400"
-          stroke="currentColor"
-          strokeWidth="1"
-          fill="none"
-          className="text-primary"
-        />
-        <circle cx="140" cy="60" r="2" className="fill-primary" />
-        <circle cx="280" cy="80" r="2" className="fill-primary" />
+        <defs>
+          <linearGradient id="circ" x1="0" x2="1">
+            <stop offset="0" stopColor="oklch(0.72 0.2 315)" stopOpacity="0" />
+            <stop offset="0.5" stopColor="oklch(0.72 0.2 315)" stopOpacity="1" />
+            <stop offset="1" stopColor="oklch(0.72 0.2 315)" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        <path d="M0 120 H100 L130 90 H260 L290 120 H400" stroke="url(#circ)" strokeWidth="1" fill="none"
+          strokeDasharray="6 6" className="animate-dash-flow" />
+        <path d="M400 680 H300 L270 710 H140 L110 680 H0" stroke="url(#circ)" strokeWidth="1" fill="none"
+          strokeDasharray="6 6" className="animate-dash-flow" style={{ animationDelay: "-2s" }} />
+        <circle cx="130" cy="90" r="2.5" fill="oklch(0.82 0.13 320)" className="animate-pulse-glow" />
+        <circle cx="290" cy="120" r="2.5" fill="oklch(0.82 0.13 320)" className="animate-pulse-glow" />
+        <circle cx="270" cy="710" r="2.5" fill="oklch(0.82 0.13 320)" className="animate-pulse-glow" />
       </svg>
 
       <div className="relative mx-auto flex min-h-screen max-w-md flex-col px-6 pb-10 pt-12">
         {/* Logo */}
         <header className="flex flex-col items-center text-center">
-          <div className="relative">
+          <div className="relative animate-fade-up">
             <div
               aria-hidden
-              className="absolute inset-0 -m-6 rounded-full blur-3xl opacity-40"
+              className="absolute inset-0 -m-10 rounded-full blur-3xl opacity-60 animate-pulse-glow"
               style={{ background: "var(--gradient-primary)" }}
             />
             <img
               src={logo}
               alt="SET Tecnologia"
-              className="relative h-40 w-auto object-contain"
+              className="relative h-44 w-auto object-contain animate-logo-float drop-shadow-[0_10px_30px_rgba(149,76,233,0.5)]"
             />
           </div>
 
-          {/* Badge tecnológico */}
-          <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-[11px] font-medium uppercase tracking-widest text-primary backdrop-blur-sm">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />
+          {/* Badge */}
+          <div
+            className="mt-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary-foreground/90 backdrop-blur-md animate-fade-up"
+            style={{ animationDelay: "0.15s" }}
+          >
+            <Sparkles className="h-3 w-3 text-accent" />
             Atendimento Digital
           </div>
 
-          <h1 className="mt-5 text-balance bg-clip-text text-4xl font-extrabold leading-[1.05] tracking-tight text-foreground sm:text-[2.6rem]">
-            Tecnologia que faz sua{" "}
+          <h1
+            className="mt-5 text-balance text-[2rem] font-extrabold leading-[1.05] tracking-tight text-foreground sm:text-[2.4rem] animate-fade-up"
+            style={{ animationDelay: "0.25s" }}
+          >
+            Criamos soluções para sua empresa{" "}
             <span
               className="bg-clip-text text-transparent"
               style={{ backgroundImage: "var(--gradient-primary)" }}
             >
-              empresa crescer
-            </span>
+              vender mais
+            </span>{" "}
+            e ganhar produtividade.
           </h1>
 
-          <p className="mt-4 max-w-sm text-pretty text-sm leading-relaxed text-muted-foreground">
+          <p
+            className="mt-4 max-w-sm text-pretty text-sm leading-relaxed text-muted-foreground animate-fade-up"
+            style={{ animationDelay: "0.35s" }}
+          >
             Sistemas, automações com IA, marketing e design em um só lugar.
-            Escolha abaixo como prefere começar.
           </p>
         </header>
 
         {/* Instrução */}
-        <p className="mt-10 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-          Clique em uma das opções
+        <p
+          className="mt-10 text-center text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground animate-fade-up"
+          style={{ animationDelay: "0.45s" }}
+        >
+          Escolha por onde começar
         </p>
 
         {/* Botões */}
-        <section className="mt-4 space-y-3">
+        <section className="mt-4 space-y-3 animate-fade-up" style={{ animationDelay: "0.5s" }}>
           {/* WhatsApp — primário */}
           <a
             href={WHATSAPP_URL}
@@ -131,18 +159,22 @@ function Index() {
               boxShadow: "var(--shadow-glow)",
             }}
           >
+            <span
+              aria-hidden
+              className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full"
+            />
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/15 backdrop-blur-sm">
               <MessageCircle className="h-5 w-5" />
             </div>
-            <div className="flex-1">
+            <div className="relative flex-1">
               <div className="text-base font-semibold leading-tight">
-                Fale com nosso time
+                Solicite um diagnóstico
               </div>
               <div className="text-xs text-white/75">
-                Solicite seu diagnóstico no WhatsApp
+                Fale com nosso time no WhatsApp
               </div>
             </div>
-            <ArrowUpRight className="h-5 w-5 opacity-70 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <ArrowUpRight className="relative h-5 w-5 opacity-70 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
 
           {/* Site — secundário */}
@@ -150,7 +182,7 @@ function Index() {
             href={SITE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative flex w-full items-center gap-4 overflow-hidden rounded-2xl border border-primary/20 bg-card/80 px-5 py-4 text-left text-foreground backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:border-primary/50 hover:bg-card"
+            className="group relative flex w-full items-center gap-4 overflow-hidden rounded-2xl border border-primary/25 bg-card/60 px-5 py-4 text-left text-foreground backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:border-primary/60 hover:bg-card/80"
             style={{ boxShadow: "var(--shadow-card)" }}
           >
             <div
@@ -167,14 +199,14 @@ function Index() {
                 Visite nosso site oficial
               </div>
             </div>
-            <ArrowUpRight className="h-5 w-5 text-primary opacity-70 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <ArrowUpRight className="h-5 w-5 text-accent opacity-80 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </section>
 
         {/* Rodapé */}
-        <footer className="mt-auto pt-12 text-center">
+        <footer className="mt-auto pt-12 text-center animate-fade-up" style={{ animationDelay: "0.6s" }}>
           <div className="mx-auto mb-4 h-px w-16 bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-          <p className="text-sm font-semibold text-foreground">
+          <p className="text-sm font-semibold shimmer-text">
             SET Tecnologia
           </p>
           <p className="mt-1 text-xs text-muted-foreground">
@@ -184,7 +216,7 @@ function Index() {
             href={SITE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 inline-block text-xs font-medium text-primary transition-colors hover:text-accent"
+            className="mt-3 inline-block text-xs font-medium text-accent transition-colors hover:text-primary-foreground"
           >
             settecnologia.com
           </a>
