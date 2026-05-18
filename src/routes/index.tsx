@@ -33,26 +33,48 @@ function Index() {
       {/* === Animated 3D mesh background === */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 -left-32 h-[36rem] w-[36rem] rounded-full blur-[110px] opacity-70 animate-blob-1"
+        className="pointer-events-none absolute -top-40 -left-32 h-[36rem] w-[36rem] blur-[110px] opacity-80 animate-blob-1 animate-hue-shift mix-blend-screen"
         style={{
           background:
             "radial-gradient(circle at 30% 30%, oklch(0.7 0.22 300 / 0.55), transparent 65%)",
+          borderRadius: "42% 58% 63% 37% / 47% 39% 61% 53%",
         }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute top-1/3 -right-40 h-[34rem] w-[34rem] rounded-full blur-[110px] opacity-60 animate-blob-2"
+        className="pointer-events-none absolute top-1/3 -right-40 h-[34rem] w-[34rem] blur-[110px] opacity-70 animate-blob-2 animate-morph mix-blend-screen"
         style={{
           background:
             "radial-gradient(circle at 70% 50%, oklch(0.78 0.14 320 / 0.5), transparent 65%)",
+          borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
         }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-40 left-1/2 h-[32rem] w-[32rem] -translate-x-1/2 rounded-full blur-[110px] opacity-50 animate-blob-3"
+        className="pointer-events-none absolute -bottom-40 left-1/2 h-[32rem] w-[32rem] -translate-x-1/2 blur-[110px] opacity-60 animate-blob-3 animate-morph-slow mix-blend-screen"
         style={{
           background:
             "radial-gradient(circle, oklch(0.7 0.18 250 / 0.45), transparent 65%)",
+          borderRadius: "30% 70% 50% 50% / 50% 60% 40% 50%",
+        }}
+      />
+
+      {/* Extra pulsing orb */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-10 right-1/4 h-[18rem] w-[18rem] rounded-full blur-[90px] opacity-50 animate-orb-pulse mix-blend-screen"
+        style={{
+          background:
+            "radial-gradient(circle, oklch(0.78 0.2 290 / 0.6), transparent 70%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-20 left-10 h-[14rem] w-[14rem] rounded-full blur-[80px] opacity-50 animate-orb-pulse mix-blend-screen"
+        style={{
+          background:
+            "radial-gradient(circle, oklch(0.82 0.16 340 / 0.55), transparent 70%)",
+          animationDelay: "2s",
         }}
       />
 
