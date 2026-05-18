@@ -236,63 +236,63 @@ function Index() {
           </p>
 
            <div 
-             className="mt-4 flex flex-col items-center gap-1 animate-rise"
+             className="mt-5 flex flex-col items-center gap-1.5 animate-rise"
              style={{ animationDelay: "0.2s" }}
            >
-             <h1 className="text-balance text-[2rem] font-bold leading-[1.1] tracking-[-0.04em] text-foreground">
+             <h1 className="text-balance text-[2.4rem] font-bold leading-[1.05] tracking-[-0.05em] text-foreground">
                Soluções para sua empresa
              </h1>
-             <div className="flex flex-wrap justify-center gap-x-2 text-[2rem] font-bold leading-[1.1] tracking-[-0.04em]">
+             <div className="flex flex-wrap justify-center gap-x-2.5 text-[2.4rem] font-bold leading-[1.05] tracking-[-0.05em]">
                <span className="shimmer-text">vender mais</span>
                <span className="text-foreground">e evoluir.</span>
              </div>
            </div>
 
-          <p
-            className="mt-3 max-w-[20rem] text-pretty text-[14px] font-normal leading-[1.45] tracking-[-0.01em] text-muted-foreground animate-rise"
-            style={{ animationDelay: "0.3s" }}
-          >
-            Sistemas, automações com IA, marketing e design em um só lugar.
-          </p>
+           <p
+             className="mt-4 max-w-[22rem] text-pretty text-[15px] font-normal leading-[1.5] tracking-[-0.015em] text-muted-foreground animate-rise"
+             style={{ animationDelay: "0.3s" }}
+           >
+             Sistemas, automações com IA, marketing e design integrados para o crescimento do seu negócio.
+           </p>
         </header>
 
         {/* Botões */}
-        <section
-          className="mt-6 space-y-2.5 animate-rise"
-          style={{ animationDelay: "0.45s" }}
-        >
+         <section
+           className="mt-8 space-y-3.5 animate-rise"
+           style={{ animationDelay: "0.45s" }}
+         >
           {/* WhatsApp — primário */}
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative flex w-full items-center gap-3 overflow-hidden rounded-2xl px-4 py-3.5 text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
-            style={{
-              background:
-                "linear-gradient(135deg, oklch(0.5 0.22 300), oklch(0.62 0.22 315))",
-              boxShadow:
-                "0 1px 0 rgba(255,255,255,0.25) inset, 0 18px 40px -12px oklch(0.5 0.22 300 / 0.55), 0 4px 10px rgba(0,0,0,0.08)",
-            }}
-          >
+           <a
+             href={WHATSAPP_URL}
+             target="_blank"
+             rel="noopener noreferrer"
+             className="group relative flex w-full items-center gap-4 overflow-hidden rounded-3xl px-5 py-5 text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
+             style={{
+               background:
+                 "linear-gradient(135deg, oklch(0.5 0.22 300), oklch(0.62 0.22 315))",
+               boxShadow:
+                 "0 1px 0 rgba(255,255,255,0.25) inset, 0 22px 50px -15px oklch(0.5 0.22 300 / 0.6), 0 4px 12px rgba(0,0,0,0.1)",
+             }}
+           >
             <span
               aria-hidden
               className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full"
             />
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/15 backdrop-blur-sm">
-              <MessageCircle className="h-[16px] w-[16px]" strokeWidth={2.2} />
+             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/15 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
+               <MessageCircle className="h-[20px] w-[20px]" strokeWidth={2.5} />
             </div>
-            <div className="relative flex-1 text-left">
-              <div className="text-[14px] font-semibold leading-tight tracking-tight">
-                Solicite um diagnóstico
-              </div>
-              <div className="text-[11px] font-normal text-white/75">
-                Fale com o time no WhatsApp
-              </div>
+             <div className="relative flex-1 text-left flex flex-col justify-center">
+               <div className="text-[16px] font-bold leading-tight tracking-tight">
+                 Iniciar Consultoria Grátis
+               </div>
+               <div className="text-[12px] font-medium text-white/80">
+                 Fale com nossos especialistas agora
+               </div>
             </div>
-            <ArrowUpRight
-              className="relative h-[16px] w-[16px] opacity-80 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              strokeWidth={2.2}
-            />
+             <ArrowUpRight
+               className="relative h-[20px] w-[20px] opacity-90 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+               strokeWidth={2.5}
+             />
           </a>
 
           {/* Site — temporariamente oculto */}
