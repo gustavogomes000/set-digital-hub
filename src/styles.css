@@ -2,6 +2,7 @@
 @source "../src";
 @import "tw-animate-css";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Urbanist:wght@400;500;600;700&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -64,31 +65,31 @@
 
 :root {
   --radius: 0.625rem;
-  /* SET Tecnologia brand */
-  --background: oklch(0.971 0 0); /* #F5F5F5 técnico */
-  --foreground: oklch(0.18 0.09 295); /* #160A3D roxo profundo */
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.09 295);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.09 295);
-  --primary: oklch(0.32 0.18 290); /* #311B92 índigo */
-  --primary-foreground: oklch(0.98 0 0);
-  --primary-glow: oklch(0.55 0.18 305);
-  --secondary: oklch(0.95 0.02 305);
-  --secondary-foreground: oklch(0.18 0.09 295);
-  --muted: oklch(0.95 0.015 305);
-  --muted-foreground: oklch(0.45 0.05 295);
-  --accent: oklch(0.78 0.12 320); /* #CE93D8 lavanda */
+  /* SET Tecnologia brand — dark tech */
+  --background: oklch(0.13 0.04 290); /* deep indigo-black */
+  --foreground: oklch(0.98 0.01 300);
+  --card: oklch(0.18 0.05 290);
+  --card-foreground: oklch(0.98 0.01 300);
+  --popover: oklch(0.18 0.05 290);
+  --popover-foreground: oklch(0.98 0.01 300);
+  --primary: oklch(0.55 0.22 300); /* vivid purple */
+  --primary-foreground: oklch(0.99 0 0);
+  --primary-glow: oklch(0.72 0.2 315);
+  --secondary: oklch(0.25 0.08 295);
+  --secondary-foreground: oklch(0.98 0.01 300);
+  --muted: oklch(0.22 0.05 290);
+  --muted-foreground: oklch(0.75 0.04 300);
+  --accent: oklch(0.82 0.13 320); /* lavanda CE93D8 */
   --accent-foreground: oklch(0.18 0.09 295);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.9 0.02 300);
-  --input: oklch(0.9 0.02 300);
-  --ring: oklch(0.32 0.18 290);
-  --gradient-primary: linear-gradient(135deg, oklch(0.32 0.18 290), oklch(0.55 0.18 305));
-  --gradient-bg: radial-gradient(ellipse at top, oklch(0.95 0.04 305) 0%, oklch(0.971 0 0) 60%);
-  --shadow-glow: 0 20px 50px -12px oklch(0.32 0.18 290 / 0.45);
-  --shadow-card: 0 4px 24px -8px oklch(0.18 0.09 295 / 0.12);
+  --border: oklch(1 0 0 / 0.08);
+  --input: oklch(1 0 0 / 0.1);
+  --ring: oklch(0.55 0.22 300);
+  --gradient-primary: linear-gradient(135deg, oklch(0.45 0.22 295), oklch(0.72 0.2 315));
+  --gradient-bg: radial-gradient(ellipse at 50% 0%, oklch(0.28 0.15 295) 0%, oklch(0.13 0.04 290) 55%, oklch(0.08 0.03 290) 100%);
+  --shadow-glow: 0 20px 60px -12px oklch(0.55 0.22 300 / 0.55);
+  --shadow-card: 0 8px 32px -8px oklch(0 0 0 / 0.5);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -147,7 +148,62 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-family: "Urbanist", "Inter", system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
+
+  h1, h2, h3 {
+    font-family: "Montserrat", "Inter", system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Animated tech background */
+@keyframes float-orb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -40px) scale(1.1); }
+  66% { transform: translate(-25px, 25px) scale(0.95); }
+}
+@keyframes grid-pan {
+  0% { background-position: 0 0; }
+  100% { background-position: 56px 56px; }
+}
+@keyframes scan-line {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.05); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes logo-float {
+  0%, 100% { transform: translateY(0) rotateZ(0deg); }
+  50% { transform: translateY(-8px) rotateZ(-1deg); }
+}
+@keyframes dash-flow {
+  to { stroke-dashoffset: -200; }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-float-orb { animation: float-orb 14s ease-in-out infinite; }
+.animate-grid-pan { animation: grid-pan 12s linear infinite; }
+.animate-scan-line { animation: scan-line 6s linear infinite; }
+.animate-pulse-glow { animation: pulse-glow 4s ease-in-out infinite; }
+.animate-logo-float { animation: logo-float 5s ease-in-out infinite; }
+.animate-dash-flow { animation: dash-flow 4s linear infinite; }
+.animate-fade-up { animation: fade-up 0.7s ease-out both; }
+.shimmer-text {
+  background: linear-gradient(90deg, var(--color-foreground) 0%, var(--primary-glow) 50%, var(--color-foreground) 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 4s linear infinite;
 }
